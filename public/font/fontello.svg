@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2020 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="music" unicode="&#xe800;" d="M1-16q-8 57 38 103t118 57q64 10 119-17l25 652 690 53q-32-727-34-756-1-51-45-91t-109-50q-72-10-129 22t-64 89 37 105 117 58q68 9 125-22l25 465-539-55-5-131q-6-131-12-277t-8-176l0-6q-6-50-49-89t-107-47q-70-10-127 23t-66 90z" horiz-adv-x="991" />
+
+<glyph glyph-name="record" unicode="&#xe801;" d="M350 700q146 0 248-102t102-248q0-144-102-247t-248-103-248 103-102 247q0 146 102 248t248 102z" horiz-adv-x="700" />
+
+<glyph glyph-name="music-1" unicode="&#xe802;" d="M600 800q42 0 71-29t29-71l0-700q0-40-29-70t-71-30l-500 0q-40 0-70 30t-30 70l0 700q0 42 30 71t70 29l500 0z m-110-476q32 44 23 92t-33 80-49 66-25 54l-60 0 0-368q-42 16-90-2-42-14-64-48t-12-64q12-32 53-45t85 1q88 30 88 98l0 262q36-6 55-32t18-52-3-42q-4-10 2-10 4 0 12 10z" horiz-adv-x="700" />
+
+<glyph glyph-name="upload-cloud" unicode="&#xf0ee;" d="M714 368q0 8-5 13l-196 196q-5 5-13 5t-13-5l-196-196q-5-6-5-13 0-8 5-13t13-5h125v-196q0-8 5-13t12-5h108q7 0 12 5t5 13v196h125q8 0 13 5t5 13z m357-161q0-89-62-151t-152-63h-607q-103 0-177 73t-73 177q0 72 39 134t105 92q-1 17-1 24 0 118 84 202t202 84q87 0 159-49t105-129q40 35 93 35 59 0 101-42t42-101q0-43-23-77 72-17 119-76t46-133z" horiz-adv-x="1071.4" />
+</font>
+</defs>
+</svg>
