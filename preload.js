@@ -1,4 +1,4 @@
-const { ipcRenderer } = require('electron');
+const { ipcRenderer, remote } = require('electron');
 
 ipcRenderer.on('sound', (e, data) => {
     window.dispatchEvent(new CustomEvent('sound', {
@@ -8,4 +8,5 @@ ipcRenderer.on('sound', (e, data) => {
     }))
 });
 
-window.ipcRenderer = ipcRenderer; 
+window.ipcRenderer = ipcRenderer;
+window.remote = remote; 

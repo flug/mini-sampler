@@ -18,7 +18,7 @@
 ## fonctionnalitées : 
 
     pouvoir ajouter des son type mp3 
-    pouvoir s'enregistrer 
+    pouvoir s'enregistrer [https://medium.com/@bryanjenningz/how-to-record-and-play-audio-in-javascript-faa1b2b3e49b]
     pourvoir se connecter a une carte son 
     ajouter des floatant pour ajouter ou dévérouiller les options 
     persister la configuration JSON

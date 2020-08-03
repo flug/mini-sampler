@@ -6,6 +6,7 @@ import usePopin from './PopinEditingSound/usePopin';
 import NewSound from './Button/NewSound';
 import PopinRemoveSoundConfirm from './PopinRemoveSoundConfirm';
 import usePopinConfirm from './PopinRemoveSoundConfirm/usePopinConfirm';
+import Player from './Player';
 
 
 const Container = styled.div`
@@ -42,8 +43,8 @@ const App = () => {
   const [soundKey, setSoundKey] = useState(0);
 
   return (
-
     <Container className="App">
+      <Player />
       {buttons.map((button, i) => (
         <Button button={button} key={i} soundKey={[setSoundKey, i]} onRemoveAction={removePopinState.toggle} />
       ))}

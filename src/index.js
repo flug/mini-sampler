@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import Player from './Player';
 import * as serviceWorker from './serviceWorker';
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import './fonts.css'
+
+import MiniSampler from './MiniSampler';
+
 const GlobalStyle = createGlobalStyle`
   body {
     background-color: hsl(212, 13%, 10%);
@@ -12,17 +13,18 @@ const GlobalStyle = createGlobalStyle`
     background-image: url("/background.png") ; 
     background-repeat: no-repeat; 
     background-position: 50% -15% ; 
+    margin: 0; 
   }
   * {
     box-sizing: border-box;
   }
 `
 
+
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyle />
-    <Player />
-    <App />
+    <MiniSampler />
   </React.StrictMode>,
   document.getElementById('root')
 );
