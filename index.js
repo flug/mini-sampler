@@ -103,7 +103,7 @@ const copySound = (soundPath) => {
 
     const ext = path.extname(soundPath);
     const relativePath = soundDirectory + "/" + md5File.sync(soundPath) + ext;
-    const absolutePath = __dirname + "/public/" + relativePath;
+    const absolutePath = app.getPath('userData') + relativePath;
     fs.copyFile(soundPath, absolutePath, (err) => console.log(err))
 
     return relativePath;
