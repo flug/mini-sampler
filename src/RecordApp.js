@@ -28,22 +28,20 @@ const makeDistortionCurve = (amount) => {
 
 const RecordApp = ({ value }) => {
 
-    const { contextAudio, setDistortion, setGain } = value.contextAudio;
+    const { contextAudio, setDistortion, setGain, setBiquadFilter } = value.contextAudio;
 
-    const handleWaveShaper = (e) => {
-        setDistortion(makeDistortionCurve(e.target.value))
-    }
+    const handleWaveShaper = ({ target }) => setDistortion(makeDistortionCurve(target.value))
 
-    const handleGainChange = (e) => {
-        setGain(e.target.value)
-    }
+    const handleGainChange = ({ target }) => setGain(target.value)
 
+
+    const handleBiquadFilter = ({ target }) => setBiquadFilter(target.value)
 
     return (
         <View>
             <InputRangeSound onChange={handleWaveShaper} min="150" max="1000" />
             <InputRangeSound onChange={handleGainChange} min="0" max="100" />
-            <InputRangeSound />
+            <InputRangeSound onChange={handleBiquadFilter} min="0" max="2000" />
         </View>
     );
 

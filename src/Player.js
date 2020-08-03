@@ -24,12 +24,13 @@ const toArrayBuffer = (buffer) => {
 const Player = (props) => {
 
     const audioContext = useContext(WebAudioContext).contextAudio;
-    const { distortion, gain } = audioContext.contextAudio;
+    const { distortion, gain, biquadFilter } = audioContext.contextAudio;
     const [soundPath, setSoundPath] = useState(null);
     const [ctxt] = useState(contextAudio());
     const dist = ctxt.createWaveShaper();
-    const analyseur = ctxt.createAnalyser()
-    const gainNode = ctxt.createGain();
+    let analyseur = ctxt.createAnalyser()
+    let gainNode = ctxt.createGain();
+    let tunableFilter = ctxt.createBiquadFilter();
 
     useEffect(() => {
         window.addEventListener('sound', (e) => {
@@ -38,15 +39,41 @@ const Player = (props) => {
     }, []);
 
     useEffect(() => {
-        dist.curve = distortion;
-
+        setTimeout(() => {
+            let event = new CustomEvent('distortion', { 'detail': { 'distortion': distortion } });
+            document.dispatchEvent(event)
+        }, 1000)
     }, [distortion])
 
     useEffect(() => {
-        //        gainNode.gain.value = gain
-        console.log(gain);
-        gainNode.gain.setValueAtTime(gain, ctxt.currentTime);
+        setTimeout(() => {
+            let event = new CustomEvent('gain', { 'detail': { 'gain': gain } });
+            document.dispatchEvent(event)
+        }, 1000)
+
+
     }, [gain])
+
+    useEffect(() => {
+        setTimeout(() => {
+            let event = new CustomEvent('biquadFile', {
+                'detail':
+                {
+                    'biquadFilter': {
+                        type: "highshelf",
+                        frequency: {
+                            value: biquadFilter
+                        },
+                        gain: {
+                            value: 50
+                        }
+                    }
+                }
+            })
+
+            document.dispatchEvent(event);
+        }, 1000)
+    }, [biquadFilter])
 
     useEffect(() => {
 
@@ -62,15 +89,17 @@ const Player = (props) => {
                 let source = ctxt.createBufferSource();
 
                 source.buffer = buffer;
-                source.connect(gainNode);
-                analyseur.connect(gainNode);
+                source.connect(analyseur);
+                analyseur.connect(dist);
+                dist.connect(tunableFilter);
+                tunableFilter.connect(gainNode);
                 gainNode.connect(ctxt.destination);
-                /*
-                                setInterval(() => {
-                                    gainNode.gain.value += 1;
-                                }, 1000)*/
-                // console.log(gainNode.gain.value = 78);
-                // dist.connect(gainNode)
+
+                document.addEventListener('distortion', ({ detail }) => dist.curve = detail.distortion)
+                document.addEventListener('gain', ({ detail }) => gainNode.gain.value = detail.gain)
+                document.addEventListener('biquadFile', ({ detail }) => tunableFilter = detail.biquadFilter)
+
+
 
 
                 source.start(0);
